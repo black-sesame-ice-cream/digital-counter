@@ -1,0 +1,142 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+body {
+    color: black;
+}
+
+#counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    --segment-on-color: #000000;
+}
+
+#counter.seven-segment-display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 右揃えにする */
+    font-weight: normal; 
+}
+
+.digit, .minus-sign {
+    position: relative;
+    width: 1em; /* セグメント全体の横幅 */
+    height: 2em; /* セグメント全体の縦幅 (アスペクト比を調整) */
+}
+
+.segment {
+    position: absolute;
+    background-color: transparent; 
+    transition: background-color 0.1s ease; /* 色変化を滑らかに */
+}
+
+.segment.on {
+    background-color: var(--segment-on-color); /* 点灯時は指定色 */
+}
+
+:root {
+    --thickness: 0.2em; /* セグメントの太さ (JSで動的に変更) */
+    --half-thickness: calc(var(--thickness) / 2);
+}
+
+.segment-a, .segment-b, .segment-c, .segment-d, .segment-e, .segment-f, .segment-g {
+    transform: none;
+    margin: 0;
+}
+
+/* 横方向のセグメント (a, d, g) */
+.segment-a, .segment-d, .segment-g {
+    height: var(--thickness);
+    width: calc(100% - var(--thickness));
+    left: var(--half-thickness);
+    clip-path: polygon(
+        var(--half-thickness) 0%, 
+        calc(100% - var(--half-thickness)) 0%, 
+        100% 50%, 
+        calc(100% - var(--half-thickness)) 100%, 
+        var(--half-thickness) 100%, 
+        0% 50%
+    );
+}
+
+/* 縦方向のセグメント (b, c, e, f) */
+.segment-b, .segment-c, .segment-e, .segment-f {
+    width: var(--thickness);
+    height: calc(50% - var(--half-thickness));
+    clip-path: polygon(
+        50% 0%, 
+        100% var(--half-thickness), 
+        100% calc(100% - var(--half-thickness)), 
+        50% 100%, 
+        0% calc(100% - var(--half-thickness)), 
+        0% var(--half-thickness)
+    );
+}
+
+/* 各セグメントの位置 */
+.segment-a { top: 0; }
+.segment-d { bottom: 0; }
+.segment-g { top: 50%; margin-top: calc(var(--half-thickness) * -1); }
+
+.segment-f { left: 0; top: var(--half-thickness); }
+.segment-b { right: 0; top: var(--half-thickness); }
+
+.segment-e { left: 0; bottom: var(--half-thickness); }
+.segment-c { right: 0; bottom: var(--half-thickness); }
+
+.minus-sign .segment-g {
+    width: 100%;
+    left: 0;
+    transform: none;
+    margin-top: calc(var(--half-thickness) * -1);
+}
+
+.lil-gui.root {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.github-icon-link {
+position: fixed;
+top: 10px;
+left: 10px;
+z-index: 999;
+}
+
+.github-icon-link img {
+width: 32px;
+height: 32px;
+}
+
+.github-icon-link:hover img {
+transform: scale(1.1);
+}
+
+.booth-icon-link {
+position: fixed;
+top: 55px;
+left: 10px;
+z-index: 999;
+}
+
+.booth-icon-link img {
+width: 32px;
+height: 32px;
+}
+
+.booth-icon-link:hover img {
+transform: scale(1.1);
+}
