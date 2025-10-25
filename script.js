@@ -32,10 +32,10 @@ const state = {
     positionY: 50,
     upVolume: 100,
     downVolume: 100,
-    upSoundName: 'None',
-    downSoundName: 'None',
-    upSoundURL: null,
-    downSoundURL: null,
+    upSoundName: 'カーソル移動9.mp3',
+    downSoundName: 'カーソル移動12.mp3',
+    upSoundURL: 'sounds/カーソル移動9.mp3',
+    downSoundURL: 'sounds/カーソル移動12.mp3',
     reset: () => {
         state.count = 0;
         checkLimits(); // 0が範囲外の場合、補正する
@@ -139,20 +139,37 @@ counterElement.addEventListener('contextmenu', (event) => {
     }
 });
 
+// URLが createObjectURL で生成されたものか判定するヘルパー関数 (追加)
+function isBlobURL(url) {
+    return url && typeof url === 'string' && url.startsWith('blob:');
+}
+
 upSoundInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
-        if (state.upSoundURL) URL.revokeObjectURL(state.upSoundURL);
+        // 以前のURLがBlob URLの場合のみ revoke (変更)
+        if (isBlobURL(state.upSoundURL)) {
+            URL.revokeObjectURL(state.upSoundURL);
+        }
         state.upSoundURL = URL.createObjectURL(file);
         state.upSoundName = file.name;
+        // GUIのファイル名表示を更新 (元のscript.jsには無かったが、動作のために追加)
+        const controller = gui.controllers.find(c => c.property === 'upSoundName');
+        if (controller) controller.updateDisplay();
     }
 });
 downSoundInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
-        if (state.downSoundURL) URL.revokeObjectURL(state.downSoundURL);
+        // 以前のURLがBlob URLの場合のみ revoke (変更)
+        if (isBlobURL(state.downSoundURL)) {
+            URL.revokeObjectURL(state.downSoundURL);
+        }
         state.downSoundURL = URL.createObjectURL(file);
         state.downSoundName = file.name;
+        // GUIのファイル名表示を更新 (元のscript.jsには無かったが、動作のために追加)
+        const controller = gui.controllers.find(c => c.property === 'downSoundName');
+        if (controller) controller.updateDisplay();
     }
 });
 
@@ -190,4 +207,3 @@ downSoundFolder.add(state, 'downSoundName').name('ファイル名').listen().dis
 downSoundFolder.add(state, 'downVolume', 0, 100, 1).name('音量');
 
 updateDisplay();
-

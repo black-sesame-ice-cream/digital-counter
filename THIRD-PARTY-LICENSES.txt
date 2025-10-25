@@ -1,4 +1,9 @@
 ====================
+SOUNDS: 効果音ラボ
+SOURCE: https://soundeffect-lab.info/
+====================
+
+====================
 PACKAGE:     lil-gui@0.21.0
 License:     MIT
 Repository:  https://github.com/georgealways/lil-gui
