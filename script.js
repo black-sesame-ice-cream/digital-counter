@@ -23,7 +23,7 @@ const state = {
     lowerLimit: -1,
     leftClickValue: 1, // 左クリックの増減値
     rightClickValue: -1, // 右クリックの増減値
-    fontSize: 25,
+    fontSize: 50,
     color: '#000000',
     limitColor: '#ff794d', // カンスト時の色
     thickness: 0.2, // 数字の太さ
