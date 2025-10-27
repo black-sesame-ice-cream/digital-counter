@@ -32,10 +32,10 @@ const state = {
     positionY: 50,
     upVolume: 100,
     downVolume: 100,
-    upSoundName: 'カーソル移動9.mp3',
-    downSoundName: 'カーソル移動12.mp3',
-    upSoundURL: 'sounds/カーソル移動9.mp3',
-    downSoundURL: 'sounds/カーソル移動12.mp3',
+    upSoundName: 'Short_Accent14-1(High).mp3',
+    downSoundName: 'Short_Accent14-2(Low).mp3',
+    upSoundURL: 'sounds/Short_Accent14-1(High).mp3',
+    downSoundURL: 'sounds/Short_Accent14-2(Low).mp3',
     reset: () => {
         state.count = 0;
         checkLimits(); // 0が範囲外の場合、補正する
