@@ -1,16 +1,14 @@
+ISC License
 Copyright (c) 2025 black-sesame-ice-cream
-All rights reserved.
 
-本ソフトウェアはBOOTH (https://korechika.booth.pm/) にて販売する正規版の
-購入検討のための動作確認および試用（以下「試用」）を目的として公開されています。
-利用者は、本ソフトウェアを上記「試用」の目的に限り、無償で利用することができます。
-本ソフトウェアの使用によって生じたいかなる損害も、作者は一切の責任を負いません。
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
 
-This software is made public for the purpose of operational checks
-and trial use (hereinafter referred to as "Trial") for
-consideration before purchasing the regular version sold by the
-author on BOOTH (https://korechika.booth.pm/).
-Users may use this software free of charge only for the purpose
-of the "Trial" described above.
-The author assumes no responsibility whatsoever for any damage
-caused by the use of this software.
+THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
